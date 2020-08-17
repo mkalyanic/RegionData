@@ -15,7 +15,7 @@ export class RegionEntryComponent   {
   showTable =false;
   showCountryDropdown =false;
   
-  tableColumns: string[] = ['name','population','currencies', 'flag'];
+  tableColumns: string[] = ['name','capital','population','currencies', 'flag'];
 
   countryData :any;
   countries:any;

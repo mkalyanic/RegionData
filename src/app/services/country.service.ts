@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, filter, toArray, flatMap, switchMap, catchError, pluck, tap, mapTo } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
-const baseURL = "https://restcountries.eu/rest/v2/region/";
-
+const baseURL = 'https://restcountries.eu/rest/v2/region/';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +10,7 @@ export class CountryService {
 
   constructor( private httpClient: HttpClient ) { }
     
-    getRegionData(regionName: string){
+    getRegionData (regionName: string){
       console.log("Entering Service");
       return this.httpClient.get (baseURL + regionName)
         .pipe(map((res:any)=> {

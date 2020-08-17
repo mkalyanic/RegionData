@@ -16,15 +16,24 @@ button{
     margin: 10px;
 }
 
-table {
-    width: 75%;
+form, table {
+    width: 80%;
     margin:2%
+    
+  }
+  table{
+      border:grey;
+      border-style: solid;
   }
 
   td{
-      width : 30%
+      width : 20%
   }
-
+  th{
+    font-weight: bold;
+    text-transform:uppercase;
+  }
+  
   img {
     width: 35%;
     height: auto;
