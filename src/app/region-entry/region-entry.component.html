@@ -1,0 +1,47 @@
+
+
+<form [formGroup]="form">
+  <select formControlName="regionNamesControl" class = "custom-select"  (change) =onSelect()>
+    <option >Choose a Region</option>
+    <option *ngFor="let reg of regionNames" [ngValue]="reg">
+      {{ reg.name }}
+    </option>
+  </select>
+  <select formControlName="displayCountries" class = "custom-select" (change) = onCountrySelect() *ngIf =showCountryDropdown>
+    <option *ngFor="let country of countries" [ngValue]="country">
+      {{ country.name }}
+    </option>
+  </select>
+ 
+</form>
+
+<div *ngIf = showTable>
+<table mat-table  [dataSource]="countryData" class="mat-elevation-z8">
+    <ng-container matColumnDef = "name">
+      <th mat-header-cell *matHeaderCellDef> Name</th>
+      <td mat-cell *matCellDef = "let element"> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef = "population">
+      <th mat-header-cell *matHeaderCellDef> population</th>
+      <td mat-cell *matCellDef = "let element"> {{element.population}} </td>
+    </ng-container>
+    <ng-container matColumnDef = "currencies">
+      <th mat-header-cell *matHeaderCellDef> currencies</th>
+      <td mat-cell *matCellDef = "let element"> {{element.currencies[0].name |json}} </td>
+    </ng-container>
+    <ng-container matColumnDef = "flag">
+      <th mat-header-cell *matHeaderCellDef> flag</th>
+      <td mat-cell *matCellDef = "let element"> 
+        <img src ={{element.flag}} >  </td>
+    </ng-container>
+
+
+   
+ <tr mat-header-row *matHeaderRowDef = "tableColumns"></tr>
+ <tr mat-row *matRowDef = "let row; columns: tableColumns;"></tr>
+</table>
+
+
+  
+</div>
+
